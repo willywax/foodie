@@ -6,6 +6,7 @@ const jwt = require('jsonwebtoken'); //Used for Authentication
 
 
 exports.signUp = (req,res,next)=>{
+
     bcrypt.hash(req.body.password,10).then(
         (hash)=>{
             let user = new User({
@@ -28,6 +29,7 @@ exports.signUp = (req,res,next)=>{
 
 
 exports.login = (req,res,next)=>{
+    console.log(req.body)
     //Find User
     let findUser = {
         email: req.body.email
